@@ -11,7 +11,7 @@ public class SignUp {
 
 
     WebDriver driver = new ChromeDriver();
-
+    public String UrlBase ="http://parabank.parasoft.com/parabank/register.htm";
     public void waitForPageLoad(WebDriver webDriver) {
         Wait<WebDriver> wait = new WebDriverWait(webDriver, 30);
         wait.until(webDriver1 -> (JavascriptExecutor) webDriver).executeScript("return document.readyState");
@@ -22,7 +22,8 @@ public class SignUp {
 
     public void shouldRegister() {
 
-        driver.get("http://parabank.parasoft.com/parabank/register.htm");
+
+        driver.get(UrlBase);
         waitForPageLoad(driver);
         driver.findElement(By.xpath("//input[@name='customer.firstName']")).sendKeys("xxx");
         driver.findElement(By.xpath("//input[@id='customer.lastName']")).sendKeys("xxx");
@@ -44,7 +45,7 @@ public class SignUp {
     @Test(priority = 2)
     public void shouldNotRegisterIfUserExist() {
 
-        driver.get("http://parabank.parasoft.com/parabank/register.htm");
+        driver.get(UrlBase);
         waitForPageLoad(driver);
         driver.findElement(By.xpath("//input[@name='customer.firstName']")).sendKeys("xx");
         driver.findElement(By.xpath("//input[@id='customer.lastName']")).sendKeys("xx");
@@ -70,7 +71,7 @@ public class SignUp {
 
     public void shouldNotRegisterIfLackofConfirmationPassword() {
 
-        driver.get("http://parabank.parasoft.com/parabank/register.htm");
+        driver.get(UrlBase);
         waitForPageLoad(driver);
         driver.findElement(By.xpath("//input[@name='customer.firstName']")).sendKeys("xxxx");
         driver.findElement(By.xpath("//input[@id='customer.lastName']")).sendKeys("xxx");
@@ -94,7 +95,7 @@ public class SignUp {
 
     public void  shouldNotRegisterIfLackofUserName(){
 
-        driver.get("http://parabank.parasoft.com/parabank/register.htm");
+        driver.get(UrlBase);
         waitForPageLoad(driver);
         driver.findElement(By.xpath("//input[@name='customer.firstName']")).sendKeys("xxx");
         driver.findElement(By.xpath("//input[@id='customer.lastName']")).sendKeys("xxx");
