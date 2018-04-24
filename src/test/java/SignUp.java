@@ -12,6 +12,8 @@ public class SignUp {
 
     WebDriver driver = new ChromeDriver();
     public String UrlBase ="http://parabank.parasoft.com/parabank/register.htm";
+    public String firstNameLocation = "//input[@name='customer.firstName']";
+
     public void waitForPageLoad(WebDriver webDriver) {
         Wait<WebDriver> wait = new WebDriverWait(webDriver, 30);
         wait.until(webDriver1 -> (JavascriptExecutor) webDriver).executeScript("return document.readyState");
@@ -25,7 +27,7 @@ public class SignUp {
 
         driver.get(UrlBase);
         waitForPageLoad(driver);
-        driver.findElement(By.xpath("//input[@name='customer.firstName']")).sendKeys("xxx");
+        driver.findElement(By.xpath(firstNameLocation)).sendKeys("xxx");
         driver.findElement(By.xpath("//input[@id='customer.lastName']")).sendKeys("xxx");
         driver.findElement(By.xpath("//input[@id='customer.address.street']")).sendKeys("Wielopole 1");
         driver.findElement(By.xpath("//input[@id='customer.address.city']")).sendKeys("Krakow");
@@ -47,7 +49,7 @@ public class SignUp {
 
         driver.get(UrlBase);
         waitForPageLoad(driver);
-        driver.findElement(By.xpath("//input[@name='customer.firstName']")).sendKeys("xx");
+        driver.findElement(By.xpath(firstNameLocation)).sendKeys("xx");
         driver.findElement(By.xpath("//input[@id='customer.lastName']")).sendKeys("xx");
         driver.findElement(By.xpath("//input[@id='customer.address.street']")).sendKeys("Wielopole 1");
         driver.findElement(By.xpath("//input[@id='customer.address.city']")).sendKeys("Krakow");
@@ -73,7 +75,7 @@ public class SignUp {
 
         driver.get(UrlBase);
         waitForPageLoad(driver);
-        driver.findElement(By.xpath("//input[@name='customer.firstName']")).sendKeys("xxxx");
+        driver.findElement(By.xpath(firstNameLocation)).sendKeys("xxxx");
         driver.findElement(By.xpath("//input[@id='customer.lastName']")).sendKeys("xxx");
         driver.findElement(By.xpath("//input[@id='customer.address.street']")).sendKeys("Wielopole 1");
         driver.findElement(By.xpath("//input[@id='customer.address.city']")).sendKeys("Krakow");
@@ -97,7 +99,7 @@ public class SignUp {
 
         driver.get(UrlBase);
         waitForPageLoad(driver);
-        driver.findElement(By.xpath("//input[@name='customer.firstName']")).sendKeys("xxx");
+        driver.findElement(By.xpath(firstNameLocation)).sendKeys("xxx");
         driver.findElement(By.xpath("//input[@id='customer.lastName']")).sendKeys("xxx");
         driver.findElement(By.xpath("//input[@id='customer.address.street']")).sendKeys("Wielopole 1");
         driver.findElement(By.xpath("//input[@id='customer.address.city']")).sendKeys("Krakow");
