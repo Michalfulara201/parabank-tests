@@ -11,14 +11,33 @@ public class SignUp {
 
 
     WebDriver driver = new ChromeDriver();
-    public String UrlBase ="http://parabank.parasoft.com/parabank/register.htm";
-    public String firstNameLocation = "//input[@name='customer.firstName']";
+    public String UrlBase = "http://parabank.parasoft.com/parabank/register.htm";
+
 
     public void waitForPageLoad(WebDriver webDriver) {
         Wait<WebDriver> wait = new WebDriverWait(webDriver, 30);
         wait.until(webDriver1 -> (JavascriptExecutor) webDriver).executeScript("return document.readyState");
     }
 
+    public void registerFields(String firstNameLocation, String lastNameLocation, String customerStreetLocation,
+                               String customerCityLocation, String customerAdressState, String customerAdressZipCode,
+                               String customerPhoneNumber, String customerSsn, String customerUsername, String
+                                       customerPassword, String customerConfirmPassword) {
+
+        driver.findElement(By.xpath("//input[@name='customer.firstName']")).sendKeys(firstNameLocation);
+        driver.findElement(By.xpath("//input[@id='customer.lastName']")).sendKeys(lastNameLocation);
+        driver.findElement(By.xpath("//input[@id='customer.address.street']")).sendKeys(customerStreetLocation);
+        driver.findElement(By.xpath("//input[@id='customer.address.city']")).sendKeys(customerCityLocation);
+        driver.findElement(By.xpath("//input[@name='customer.address.state']")).sendKeys(customerAdressState);
+        driver.findElement(By.xpath("//input[@name='customer.address.zipCode']")).sendKeys(customerAdressZipCode);
+        driver.findElement(By.xpath("//input[@id='customer.phoneNumber']")).sendKeys(customerPhoneNumber);
+        driver.findElement(By.xpath("//input[@id='customer.ssn']")).sendKeys(customerSsn);
+        driver.findElement(By.xpath("//input[@id='customer.username']")).sendKeys(customerUsername);
+        driver.findElement(By.xpath("//input[@name='customer.password']")).sendKeys(customerPassword);
+        driver.findElement(By.xpath("//input[@name='repeatedPassword']")).sendKeys(customerConfirmPassword);
+        driver.findElement(By.xpath("//input[@value='Register']")).click();
+
+    }
 
     @Test(priority = 1)
 
@@ -27,18 +46,10 @@ public class SignUp {
 
         driver.get(UrlBase);
         waitForPageLoad(driver);
-        driver.findElement(By.xpath(firstNameLocation)).sendKeys("xxx");
-        driver.findElement(By.xpath("//input[@id='customer.lastName']")).sendKeys("xxx");
-        driver.findElement(By.xpath("//input[@id='customer.address.street']")).sendKeys("Wielopole 1");
-        driver.findElement(By.xpath("//input[@id='customer.address.city']")).sendKeys("Krakow");
-        driver.findElement(By.xpath("//input[@name='customer.address.state']")).sendKeys("malopolska");
-        driver.findElement(By.xpath("//input[@name='customer.address.zipCode']")).sendKeys("32800");
-        driver.findElement(By.xpath("//input[@id='customer.phoneNumber']")).sendKeys("1234567890");
-        driver.findElement(By.xpath("//input[@id='customer.ssn']")).sendKeys("1235");
-        driver.findElement(By.xpath("//input[@id='customer.username']")).sendKeys("misiek201");
-        driver.findElement(By.xpath("//input[@name='customer.password']")).sendKeys("123456789");
-        driver.findElement(By.xpath("//input[@name='repeatedPassword']")).sendKeys("123456789");
-        driver.findElement(By.xpath("//input[@value='Register']")).click();
+        registerFields("xxx", "xxx", "xxx", "xxx",
+                "xxx", "23445", "80901983", "1232",
+                "misiek201", "123456789", "123456789");
+
         Assert.assertTrue(driver.findElement(By.xpath("//a[text()='Log Out']")).isDisplayed());
 
     }
@@ -49,18 +60,10 @@ public class SignUp {
 
         driver.get(UrlBase);
         waitForPageLoad(driver);
-        driver.findElement(By.xpath(firstNameLocation)).sendKeys("xx");
-        driver.findElement(By.xpath("//input[@id='customer.lastName']")).sendKeys("xx");
-        driver.findElement(By.xpath("//input[@id='customer.address.street']")).sendKeys("Wielopole 1");
-        driver.findElement(By.xpath("//input[@id='customer.address.city']")).sendKeys("Krakow");
-        driver.findElement(By.xpath("//input[@name='customer.address.state']")).sendKeys("malopolska");
-        driver.findElement(By.xpath("//input[@name='customer.address.zipCode']")).sendKeys("32800");
-        driver.findElement(By.xpath("//input[@id='customer.phoneNumber']")).sendKeys("1234567890");
-        driver.findElement(By.xpath("//input[@id='customer.ssn']")).sendKeys("1235");
-        driver.findElement(By.xpath("//input[@id='customer.username']")).sendKeys("misiek201");
-        driver.findElement(By.xpath("//input[@name='customer.password']")).sendKeys("123456789");
-        driver.findElement(By.xpath("//input[@name='repeatedPassword']")).sendKeys("123456789");
-        driver.findElement(By.xpath("//input[@value='Register']")).click();
+
+        registerFields("xxx", "xxx", "xxx", "xxx",
+                "xxx", "23445", "80901983", "1232",
+                "misiek201", "123456789", "123456789");
 
 
         WebElement element = driver.findElement(By.xpath("//span[text()='This username already exists.']"));
@@ -75,17 +78,11 @@ public class SignUp {
 
         driver.get(UrlBase);
         waitForPageLoad(driver);
-        driver.findElement(By.xpath(firstNameLocation)).sendKeys("xxxx");
-        driver.findElement(By.xpath("//input[@id='customer.lastName']")).sendKeys("xxx");
-        driver.findElement(By.xpath("//input[@id='customer.address.street']")).sendKeys("Wielopole 1");
-        driver.findElement(By.xpath("//input[@id='customer.address.city']")).sendKeys("Krakow");
-        driver.findElement(By.xpath("//input[@name='customer.address.state']")).sendKeys("malopolska");
-        driver.findElement(By.xpath("//input[@name='customer.address.zipCode']")).sendKeys("32800");
-        driver.findElement(By.xpath("//input[@id='customer.phoneNumber']")).sendKeys("1234567890");
-        driver.findElement(By.xpath("//input[@id='customer.ssn']")).sendKeys("1235");
-        driver.findElement(By.xpath("//input[@id='customer.username']")).sendKeys("misiek201");
-        driver.findElement(By.xpath("//input[@name='customer.password']")).sendKeys("123456789");
-        driver.findElement(By.xpath("//input[@value='Register']")).click();
+        registerFields("xxx", "xxx", "xxx", "xxx",
+                "xxx", "23445", "80901983", "1232",
+                "misiek201", "123456789", "");
+
+
 
         WebElement element = driver.findElement(By.xpath("//span[text()='Password confirmation is required.']"));
         String checkConfirmation = element.getText();
@@ -93,23 +90,17 @@ public class SignUp {
 
 
     }
+
     @Test(priority = 4)
 
-    public void  shouldNotRegisterIfLackofUserName(){
+    public void shouldNotRegisterIfLackofUserName() {
 
         driver.get(UrlBase);
         waitForPageLoad(driver);
-        driver.findElement(By.xpath(firstNameLocation)).sendKeys("xxx");
-        driver.findElement(By.xpath("//input[@id='customer.lastName']")).sendKeys("xxx");
-        driver.findElement(By.xpath("//input[@id='customer.address.street']")).sendKeys("Wielopole 1");
-        driver.findElement(By.xpath("//input[@id='customer.address.city']")).sendKeys("Krakow");
-        driver.findElement(By.xpath("//input[@name='customer.address.state']")).sendKeys("malopolska");
-        driver.findElement(By.xpath("//input[@name='customer.address.zipCode']")).sendKeys("32800");
-        driver.findElement(By.xpath("//input[@id='customer.phoneNumber']")).sendKeys("1234567890");
-        driver.findElement(By.xpath("//input[@id='customer.ssn']")).sendKeys("1235");
-        driver.findElement(By.xpath("//input[@name='customer.password']")).sendKeys("123456789");
-        driver.findElement(By.xpath("//input[@name='repeatedPassword']")).sendKeys("123456789");
-        driver.findElement(By.xpath("//input[@value='Register']")).click();
+        registerFields("xxx","xxx","xxx","xxx",
+                "xxx","23445","80901983","1232",
+                "","123456789","123456789");
+        
 
         WebElement element = driver.findElement(By.xpath("//span[@id='customer.username.errors']"));
         String checkMessage = element.getText();
