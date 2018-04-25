@@ -21,7 +21,7 @@ public class LookupPage extends MainPage {
     }
 
     public void setLastName(String lastName) {
-        driver.findElement(By.xpath("//input[@id='lasttName']")).sendKeys(lastName);
+        driver.findElement(By.xpath("//input[@id='lastName']")).sendKeys(lastName);
     }
 
     public void setAddress(String address) {
@@ -44,7 +44,7 @@ public class LookupPage extends MainPage {
         driver.findElement(By.xpath("//input[@id='ssn']")).sendKeys(ssn);
     }
 
-    public void clickOnFindMyLoginButton() {
+    public void clickOnFindMyLoginInfo() {
         driver.findElement(By.xpath("//input[@value='Find My Login Info']")).sendKeys(Keys.ENTER);
     }
 

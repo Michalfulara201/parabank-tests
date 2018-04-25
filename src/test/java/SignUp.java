@@ -40,9 +40,9 @@ public class SignUp {
         registerPage.cityField("xxx");
         registerPage.cityField("xxx");
         registerPage.stateField("xxx");
-        registerPage.zipField("23233");
-        registerPage.phoneField("0987654312");
-        registerPage.ssnField("ssss");
+        registerPage.zipField("xxx");
+        registerPage.phoneField("xxx");
+        registerPage.ssnField("xxx");
         registerPage.userNameField("michal201");
         registerPage.passwordField("12345");
         registerPage.confirmationPasswordField("12345");
@@ -64,9 +64,9 @@ public class SignUp {
         registerPage.cityField("xxx");
         registerPage.cityField("xxx");
         registerPage.stateField("xxx");
-        registerPage.zipField("23233");
-        registerPage.phoneField("0987654312");
-        registerPage.ssnField("ssss");
+        registerPage.zipField("xxx");
+        registerPage.phoneField("xxx");
+        registerPage.ssnField("xxx");
         registerPage.userNameField("michal201");
         registerPage.passwordField("12345");
         registerPage.confirmationPasswordField("12345");
@@ -86,9 +86,9 @@ public class SignUp {
         registerPage.cityField("xxx");
         registerPage.cityField("xxx");
         registerPage.stateField("xxx");
-        registerPage.zipField("23233");
-        registerPage.phoneField("0987654312");
-        registerPage.ssnField("ssss");
+        registerPage.zipField("xxx");
+        registerPage.phoneField("xxx");
+        registerPage.ssnField("xxx");
         registerPage.userNameField("michal201");
         registerPage.passwordField("12345");
         registerPage.confirmationPasswordField("");
