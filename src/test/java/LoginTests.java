@@ -37,6 +37,7 @@ public class LoginTests {
         indexPage.clickLoginButton();
 
         Assert.assertTrue(indexPage.isUserNotLogin());
+        driver.close();
     }
 
     @Test(priority = 2)
@@ -49,6 +50,7 @@ public class LoginTests {
         indexPage.clickLoginButton();
 
         Assert.assertTrue(accountPage.isUserLogin());
+        driver.close();
 
 
     }
