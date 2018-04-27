@@ -10,7 +10,6 @@ import pages.AccountPage;
 import pages.IndexPage;
 
 
-
 public class LoginTests {
 
     WebDriver driver;
@@ -18,7 +17,7 @@ public class LoginTests {
     AccountPage accountPage;
 
     @BeforeMethod
-    public void before(){
+    public void before() {
         driver = new ChromeDriver();
         indexPage = new IndexPage(driver);
         accountPage = new AccountPage(driver);
@@ -42,7 +41,7 @@ public class LoginTests {
 
     @Test(priority = 2)
 
-    public void shouldLogin(){
+    public void shouldLogin() {
 
         indexPage.openParabankMainPage();
         indexPage.setUserName("michal201");

@@ -52,4 +52,28 @@ public class LookupPage extends MainPage {
         return driver.findElement(By.xpath("//span[@id='firstName.errors']")).isDisplayed();
     }
 
+    public boolean isLackofLastName() {
+        return driver.findElement(By.xpath("//span[@id='lastName.errors']")).isDisplayed();
+
+    }
+
+    public boolean isLackofAddress() {
+        return driver.findElement(By.xpath("//span[@id='address.street.errors']")).isDisplayed();
+    }
+
+    public boolean isLackofCity() {
+        return driver.findElement(By.xpath("//span[@id='address.city.errors']")).isDisplayed();
+    }
+
+    public boolean isLackofState() {
+        return driver.findElement(By.xpath("//span[@id='address.state.errors']")).isDisplayed();
+    }
+
+    public boolean isLackofZip() {
+        return driver.findElement(By.xpath("//span[@id='address.zipCode.errors']")).isDisplayed();
+    }
+
+    public boolean isLackofSnn() {
+        return driver.findElement(By.xpath("//span[text()='Social Security Number is required.']")).isDisplayed();
+    }
 }

@@ -20,11 +20,10 @@ public class SignUp {
 
 
     @BeforeMethod
-    public void before(){
+    public void before() {
         driver = new ChromeDriver();
         registerPage = new RegisterPage(driver);
         accountPage = new AccountPage(driver);
-
 
 
     }
