@@ -48,4 +48,8 @@ public class LookupPage extends MainPage {
         driver.findElement(By.xpath("//input[@value='Find My Login Info']")).sendKeys(Keys.ENTER);
     }
 
+    public boolean isLackofFirstName() {
+        return driver.findElement(By.xpath("//span[@id='firstName.errors']")).isDisplayed();
+    }
+
 }

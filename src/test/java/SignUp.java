@@ -38,7 +38,6 @@ public class SignUp {
         registerPage.lastNameField("xxx");
         registerPage.addressField("xxx");
         registerPage.cityField("xxx");
-        registerPage.cityField("xxx");
         registerPage.stateField("xxx");
         registerPage.zipField("xxx");
         registerPage.phoneField("xxx");
@@ -49,7 +48,7 @@ public class SignUp {
         registerPage.clickRegisterButton();
 
         Assert.assertTrue(accountPage.isUserLogin());
-
+        driver.close();
     }
 
 
@@ -73,7 +72,7 @@ public class SignUp {
         registerPage.clickRegisterButton();
 
         Assert.assertTrue(registerPage.isUserRegistered());
-
+        driver.close();
     }
 
     @Test(priority = 3)
@@ -95,6 +94,7 @@ public class SignUp {
         registerPage.clickRegisterButton();
 
         Assert.assertTrue(registerPage.isLackOfConfirmationPassword());
+        driver.close();
     }
 
     @Test(priority = 4)
@@ -117,6 +117,7 @@ public class SignUp {
         registerPage.clickRegisterButton();
 
         Assert.assertTrue(registerPage.isLackOfUserName());
+        driver.close();
 
     }
 

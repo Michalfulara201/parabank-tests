@@ -35,6 +35,24 @@ public class ForgotPassword {
         lookupPage.clickOnFindMyLoginInfo();
 
         Assert.assertTrue(accountPage.isUserLogin());
+        driver.close();
+    }
+
+    @Test(priority = 2)
+    public void shouldNotLogInIfFirstNameIsInccorect() {
+
+        lookupPage.openLookupPage();
+        lookupPage.setFirstName("");
+        lookupPage.setLastName("xxx");
+        lookupPage.setAddress("xxx");
+        lookupPage.setCity("xxx");
+        lookupPage.setState("xxx");
+        lookupPage.setZip("xxx");
+        lookupPage.setSnn("xxx");
+        lookupPage.clickOnFindMyLoginInfo();
+
+        Assert.assertTrue(lookupPage.isLackofFirstName());
+        driver.close();
     }
 }
 
