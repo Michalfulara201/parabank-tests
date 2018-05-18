@@ -1,79 +1,90 @@
 package pages;
 
+import assertions.ForgotAssertion;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LookupPage extends MainPage {
 
+    public ForgotAssertion forgotAssertion;
+
+
+    @FindBy(xpath = "//input[@id='firstName']")
+    private WebElement firstNameInput;
+
+    @FindBy(xpath = "//input[@id='lastName']")
+    private WebElement lastNameInput;
+
+    @FindBy(xpath = "//input[@id='address.street']")
+    private WebElement adressStreetInput;
+
+    @FindBy(xpath = "//input[@id='address.city']")
+    private WebElement addressCityInput;
+
+    @FindBy(xpath = "//input[@id='address.state']")
+    private WebElement addressStateInput;
+
+    @FindBy(xpath = "//input[@id='address.zipCode']")
+    private WebElement addressZipCode;
+
+    @FindBy(xpath = "//input[@id='ssn']")
+    private WebElement ssnInput;
+
+    @FindBy(xpath = "//input[@value='Find My Login Info']")
+    private WebElement clickLoginInfoButton;
+
+
     public LookupPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
+        forgotAssertion = new ForgotAssertion(driver);
     }
 
-    public void openLookupPage() {
-        driver.get("http://parabank.parasoft.com/parabank/lookup.htm");
+    public LookupPage setFirstName(String firstName) {
+        firstNameInput.sendKeys(firstName);
+        return this;
+
+    }
+
+    public LookupPage setLastName(String lastName) {
+        lastNameInput.sendKeys(lastName);
+        return this;
+    }
+
+    public LookupPage setAddress(String address) {
+        adressStreetInput.sendKeys(address);
+        return this;
+    }
+
+    public LookupPage setCity(String city) {
+        addressCityInput.sendKeys(city);
+        return this;
+    }
+
+    public LookupPage setState(String state) {
+        addressStateInput.sendKeys(state);
+        return this;
+    }
+
+    public LookupPage setZip(String zip) {
+        addressZipCode.sendKeys(zip);
+        return this;
+    }
+
+    public LookupPage setSnn(String ssn) {
+        ssnInput.sendKeys(ssn);
+        return this;
+    }
+
+    public LookupPage clickOnFindMyLoginInfo() {
+        clickLoginInfoButton.sendKeys(Keys.ENTER);
         waitForPageLoad(driver);
+        return new LookupPage(driver);
     }
 
-    public void setFirstName(String firstName) {
-        driver.findElement(By.xpath("//input[@id='firstName']")).sendKeys(firstName);
-
-    }
-
-    public void setLastName(String lastName) {
-        driver.findElement(By.xpath("//input[@id='lastName']")).sendKeys(lastName);
-    }
-
-    public void setAddress(String address) {
-        driver.findElement(By.xpath("//input[@id='address.street']")).sendKeys(address);
-    }
-
-    public void setCity(String city) {
-        driver.findElement(By.xpath("//input[@id='address.city']")).sendKeys(city);
-    }
-
-    public void setState(String state) {
-        driver.findElement(By.xpath("//input[@id='address.state']")).sendKeys(state);
-    }
-
-    public void setZip(String zip) {
-        driver.findElement(By.xpath("//input[@id='address.zipCode']")).sendKeys(zip);
-    }
-
-    public void setSnn(String ssn) {
-        driver.findElement(By.xpath("//input[@id='ssn']")).sendKeys(ssn);
-    }
-
-    public void clickOnFindMyLoginInfo() {
-        driver.findElement(By.xpath("//input[@value='Find My Login Info']")).sendKeys(Keys.ENTER);
-    }
-
-    public boolean isLackofFirstName() {
-        return driver.findElement(By.xpath("//span[@id='firstName.errors']")).isDisplayed();
-    }
-
-    public boolean isLackofLastName() {
-        return driver.findElement(By.xpath("//span[@id='lastName.errors']")).isDisplayed();
-
-    }
-
-    public boolean isLackofAddress() {
-        return driver.findElement(By.xpath("//span[@id='address.street.errors']")).isDisplayed();
-    }
-
-    public boolean isLackofCity() {
-        return driver.findElement(By.xpath("//span[@id='address.city.errors']")).isDisplayed();
-    }
-
-    public boolean isLackofState() {
-        return driver.findElement(By.xpath("//span[@id='address.state.errors']")).isDisplayed();
-    }
-
-    public boolean isLackofZip() {
-        return driver.findElement(By.xpath("//span[@id='address.zipCode.errors']")).isDisplayed();
-    }
-
-    public boolean isLackofSnn() {
-        return driver.findElement(By.xpath("//span[text()='Social Security Number is required.']")).isDisplayed();
-    }
 }
+

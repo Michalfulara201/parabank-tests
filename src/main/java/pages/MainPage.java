@@ -16,4 +16,5 @@ public class MainPage {
         Wait<WebDriver> wait = new WebDriverWait(webDriver, 30);
         wait.until(webDriver1 -> (JavascriptExecutor) webDriver).executeScript("return document.readyState");
     }
+
 }

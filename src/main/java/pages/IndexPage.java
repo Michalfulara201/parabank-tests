@@ -1,37 +1,81 @@
 package pages;
 
+import assertions.LoginAssertion;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class IndexPage extends MainPage {
 
 
+    public LoginAssertion loginAssertion;
+
+
+    @FindBy(xpath = "//input[@name='username']")
+    private WebElement userNameInput;
+
+    @FindBy(xpath = "//input[@name='password']")
+    private WebElement passwordInput;
+
+    @FindBy(xpath = "//input[@type='submit']")
+    private WebElement loginButton;
+
+    @FindBy(xpath = "//a[text()='Register']")
+    private WebElement clickRegisterButton;
+
+    @FindBy(xpath = "//a[contains(@href, 'lookup.htm') and text()='Forgot login info?']")
+    private WebElement clickForgotPasswordLinkInput;
+
+
     public IndexPage(WebDriver driver) {
         super(driver);
+        PageFactory.initElements(driver, this);
+        loginAssertion = new LoginAssertion(driver);
     }
 
-    public void openParabankMainPage() {
+    public IndexPage openParabankMainPage() {
         driver.get("http://parabank.parasoft.com/parabank/index.htm");
         waitForPageLoad(driver);
+        return this;
 
     }
 
-    public void setUserName(String username) {
-        driver.findElement(By.xpath("//input[@name='username']")).sendKeys(username);
+    public IndexPage setUserName(String username) {
+        userNameInput.sendKeys(username);
+        return this;
 
     }
 
-    public void setPassword(String password) {
-        driver.findElement(By.xpath("//input[@name='password']")).sendKeys(password);
+    public IndexPage setPassword(String password) {
+        passwordInput.sendKeys(password);
+        return this;
     }
 
-    public void clickLoginButton() {
-        driver.findElement(By.xpath("//input[@type='submit']")).sendKeys(Keys.ENTER);
+    public AccountPage clickLoginButton() {
+        loginButton.sendKeys(Keys.ENTER);
+        waitForPageLoad(driver);
+        return new AccountPage(driver);
 
     }
 
-    public boolean isUserNotLogin() {
-        return driver.findElement(By.xpath("//h1[text()='Error!']")).isDisplayed();
+
+    public RegisterPage clickRegisterLink() {
+        clickRegisterButton.click();
+        waitForPageLoad(driver);
+        return new RegisterPage(driver);
+
     }
+    public LookupPage clickForgotPasswordLink(){
+        clickForgotPasswordLinkInput.click();
+        waitForPageLoad(driver);
+        return new LookupPage(driver);
+
+    }
+
+
 }
+
+

@@ -1,3 +1,4 @@
+import assertions.LoginAssertion;
 import org.openqa.selenium.*;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.Wait;
@@ -10,20 +11,9 @@ import pages.AccountPage;
 import pages.IndexPage;
 
 
-public class LoginTests {
-
-    WebDriver driver;
-    IndexPage indexPage;
-    AccountPage accountPage;
-
-    @BeforeMethod
-    public void before() {
-        driver = new ChromeDriver();
-        indexPage = new IndexPage(driver);
-        accountPage = new AccountPage(driver);
+public class LoginTests extends MainTest {
 
 
-    }
 
 
     @Test(priority = 1)
@@ -31,26 +21,24 @@ public class LoginTests {
     public void shouldNotLoginWithWrongPassword() {
 
 
-        indexPage.openParabankMainPage();
-        indexPage.setUserName("misiek201");
-        indexPage.setPassword("bleble");
-        indexPage.clickLoginButton();
+        indexPage.openParabankMainPage()
+                .setUserName("xxx")
+                .setPassword("bleble")
+                .clickLoginButton()
+                .loginAssertion.userNotLoginWithWrongPassword();
 
-        Assert.assertTrue(indexPage.isUserNotLogin());
-        driver.close();
     }
 
     @Test(priority = 2)
 
     public void shouldLogin() {
 
-        indexPage.openParabankMainPage();
-        indexPage.setUserName("michal201");
-        indexPage.setPassword("12345");
-        indexPage.clickLoginButton();
+        indexPage.openParabankMainPage()
+                .setUserName("xxx")
+                .setPassword("xxx")
+                .clickLoginButton()
+                .loginAssertion.isUserLoggedin();
 
-        Assert.assertTrue(accountPage.isUserLogin());
-        driver.close();
 
 
     }
