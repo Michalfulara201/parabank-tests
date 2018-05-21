@@ -55,9 +55,9 @@ public class SignUp extends MainTest {
                 .zipField("xxx")
                 .phoneField("xxx")
                 .ssnField("xxx")
-                .userNameField("michal201")
-                .passwordField("12345")
-                .confirmationPasswordField("12345")
+                .userNameField("xxx")
+                .passwordField("xxx")
+                .confirmationPasswordField("xxx")
                 .clickRegisterButton()
                 .registerAssertion.isUserRegistered();
 
