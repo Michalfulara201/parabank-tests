@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.AccountPage;
 import pages.IndexPage;
+import scenarios.LoginScenario;
 
 
 public class LoginTests extends MainTest {
@@ -33,10 +34,7 @@ public class LoginTests extends MainTest {
 
     public void shouldLogin() {
 
-        indexPage.openParabankMainPage()
-                .setUserName("xxx")
-                .setPassword("xxx")
-                .clickLoginButton()
+                indexPage.run(new LoginScenario("xxx","xxx"))
                 .loginAssertion.isUserLoggedin();
 
 

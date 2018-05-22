@@ -80,10 +80,10 @@ public class LookupPage extends MainPage {
         return this;
     }
 
-    public LookupPage clickOnFindMyLoginInfo() {
+    public ForgotSuccessPage clickOnFindMyLoginInfo() {
         clickLoginInfoButton.sendKeys(Keys.ENTER);
         waitForPageLoad(driver);
-        return new LookupPage(driver);
+        return new ForgotSuccessPage(driver);
     }
 
 }

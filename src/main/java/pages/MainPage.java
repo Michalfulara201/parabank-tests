@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class MainPage {
+public abstract class MainPage {
     protected WebDriver driver;
 
     public MainPage(WebDriver driver) {
@@ -17,4 +17,9 @@ public class MainPage {
         wait.until(webDriver1 -> (JavascriptExecutor) webDriver).executeScript("return document.readyState");
     }
 
+    public <I extends MainPage, O extends MainPage> O run(scenarios.Scenario<I, O> scenario) {
+        return scenario.run((I)this);
+
+
+    }
 }

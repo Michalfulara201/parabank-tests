@@ -65,7 +65,8 @@ public class ForgotAssertion extends MainPage {
     public void isLackofZip() {
         Assert.assertTrue(addressZipCode.isDisplayed());
     }
-    public void isLackofSnn(){
+
+    public void isLackofSnn() {
         Assert.assertTrue(ssnInput.isDisplayed());
     }
 
