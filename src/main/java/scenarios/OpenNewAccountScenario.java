@@ -19,6 +19,7 @@ public class OpenNewAccountScenario implements Scenario<MenuPage, AccountOpenedP
 
     public AccountOpenedPage run(MenuPage entry) {
         return entry.clickNewAccountLink()
+                .menu.clickNewAccountLink()
                 .selectTypeValue(typeOfAccount)
                 .selectValueToTransfer(AccountId)
                 .clickSubmitButton();

@@ -1,18 +1,16 @@
 import org.testng.annotations.Test;
 
 import scenarios.LoginScenario;
+import scenarios.OpenNewAccountScenario;
 
 public class AccountTests extends MainTest {
 
 
     @Test(priority = 1)
 
-    public void shouldAddAccount() {
+    public void shouldAddAccountWithSavingsOption() {
         indexPage.run(new LoginScenario("xxx", "xxx"))
-                .menu.clickNewAccountLink()
-                .selectTypeValue("SAVINGS")
-                .selectValueToTransfer("13566")
-                .clickSubmitButton()
+                .menu.run(new OpenNewAccountScenario("SAVINGS","13566"))
                 .openAccountAssertion.accountOpenedConfirmation();
 
 
@@ -20,10 +18,7 @@ public class AccountTests extends MainTest {
     @Test (priority = 2)
     public void shouldAddAccountWithCheckingOption(){
         indexPage.run(new LoginScenario("xxx","xxx"))
-                .menu.clickNewAccountLink()
-                .selectTypeValue("CHECKING")
-                .selectValueToTransfer("13566")
-                .clickSubmitButton()
+                .menu.run(new OpenNewAccountScenario("CHECKING","13566"))
                 .openAccountAssertion.accountOpenedConfirmation();
     }
 

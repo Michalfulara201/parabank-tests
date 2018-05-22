@@ -31,4 +31,5 @@ public class MenuPage extends MainPage {
         waitForPageLoad(driver);
         return new OpenNewAccountPage(driver);
     }
+
 }
