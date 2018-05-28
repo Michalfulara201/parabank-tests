@@ -1,18 +1,10 @@
-import assertions.LoginAssertion;
-import org.openqa.selenium.*;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pages.AccountPage;
-import pages.IndexPage;
 import scenarios.LoginScenario;
 
 
 public class LoginTests extends MainTest {
+
 
 
 
@@ -37,6 +29,13 @@ public class LoginTests extends MainTest {
                 indexPage.run(new LoginScenario("xxx","xxx"))
                 .loginAssertion.isUserLoggedin();
 
+
+
+    }
+    @Test(priority = 3)
+    public void shouldLogOut(){
+        indexPage.run(new LoginScenario("xxx","xxx"))
+                .menu.clickLogOutLink();
 
 
     }

@@ -1,22 +1,13 @@
-import assertions.RegisterAssertion;
-import org.openqa.selenium.*;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pages.AccountPage;
-import pages.MainPage;
-import pages.RegisterPage;
 import scenarios.SignUpScenario;
 
 
 public class SignUpTests extends MainTest {
 
 
-    @Test(priority = 1)
+    @Test
 
     public void shouldRegister() {
 
@@ -28,7 +19,7 @@ public class SignUpTests extends MainTest {
     }
 
 
-    @Test(priority = 2)
+    @Test
 
     public void shouldNotRegisterIfUserExist() {
 
@@ -38,7 +29,7 @@ public class SignUpTests extends MainTest {
 
     }
 
-    @Test(priority = 3)
+    @Test
 
     public void shouldNotRegisterIfLackofConfirmationPassword() {
         indexPage.run(new SignUpScenario("xxx", "xxx", "xxx", "xxx", "xxx", "xxx"
@@ -47,7 +38,7 @@ public class SignUpTests extends MainTest {
 
     }
 
-    @Test(priority = 4)
+    @Test
 
     public void shouldNotRegisterIfLackofUserName() {
 

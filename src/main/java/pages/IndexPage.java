@@ -1,7 +1,6 @@
 package pages;
 
 import assertions.LoginAssertion;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class IndexPage extends MainPage {
 
-
+    private String url;
     public LoginAssertion loginAssertion;
 
 
@@ -23,17 +22,23 @@ public class IndexPage extends MainPage {
     @FindBy(xpath = "//input[@type='submit']")
     private WebElement loginButton;
 
-    @FindBy(xpath = "//a[text()='Register']")
+    @FindBy(xpath = "//a[contains(@href, 'register.htm') and text()='Register']")
     private WebElement clickRegisterButton;
 
     @FindBy(xpath = "//a[contains(@href, 'lookup.htm') and text()='Forgot login info?']")
     private WebElement clickForgotPasswordLinkInput;
 
 
-    public IndexPage(WebDriver driver) {
+    public IndexPage(WebDriver driver,String url) {
         super(driver);
         PageFactory.initElements(driver, this);
         loginAssertion = new LoginAssertion(driver);
+        this.url = url;
+    }
+
+    public IndexPage(WebDriver driver) {
+        super(driver);
+        PageFactory.initElements(driver,this);
     }
 
     public IndexPage openParabankMainPage() {
@@ -54,16 +59,16 @@ public class IndexPage extends MainPage {
         return this;
     }
 
-    public AccountPage clickLoginButton() {
+    public AccountInPage clickLoginButton() {
         loginButton.sendKeys(Keys.ENTER);
         waitForPageLoad(driver);
-        return new AccountPage(driver);
+        return new AccountInPage(driver);
 
     }
 
 
     public RegisterPage clickRegisterLink() {
-        clickRegisterButton.click();
+        clickRegisterButton.sendKeys(Keys.ENTER);
         waitForPageLoad(driver);
         return new RegisterPage(driver);
 

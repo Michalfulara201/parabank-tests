@@ -8,28 +8,56 @@ import org.openqa.selenium.support.PageFactory;
 public class MenuPage extends MainPage {
 
 
-
     @FindBy(xpath = "//a[text()='Accounts Overview']")
     private WebElement accountsOverview;
 
     @FindBy(xpath = "//a[text()='Open New Account']")
     private WebElement newAccount;
 
+    @FindBy(xpath = "//a[text()='Log Out']")
+    private WebElement logOutButton;
+
+    @FindBy(xpath = "//a[text()='Transfer Funds']")
+    private WebElement transferFundsButton;
+
+    @FindBy(xpath = "//a[text()='Find Transactions']")
+    private WebElement findTransactionlink;
+
     public MenuPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
-    public AccountPage clickAccountsOverviewLink(){
+    public AccountInPage clickAccountsOverviewLink() {
         accountsOverview.click();
         waitForPageLoad(driver);
-        return new AccountPage(driver);
+        return new AccountInPage(driver);
     }
 
-    public OpenNewAccountPage clickNewAccountLink(){
+    public OpenNewAccountInPage clickNewAccountLink() {
         newAccount.click();
         waitForPageLoad(driver);
-        return new OpenNewAccountPage(driver);
+        return new OpenNewAccountInPage(driver);
     }
+
+    public AccountInPage clickLogOutLink() {
+        logOutButton.click();
+        waitForPageLoad(driver);
+        return new AccountInPage(driver);
+
+    }
+
+    public TransferFundsPage clickTransferFundsButton() {
+        transferFundsButton.click();
+        waitForPageLoad(driver);
+        return new TransferFundsPage(driver);
+    }
+    public FindTransactionPage clickFindTransactionsLink(){
+        findTransactionlink.click();
+        waitForPageLoad(driver);
+        return new FindTransactionPage(driver);
+
+    }
+
 
 }

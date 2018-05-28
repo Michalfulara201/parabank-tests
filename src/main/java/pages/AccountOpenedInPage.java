@@ -1,17 +1,16 @@
 package pages;
 
-import assertions.LoginAssertion;
 import assertions.OpenAccountAssertion;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.support.PageFactory;
 
-public class AccountOpenedPage extends SuccessLoggedPage {
+public class AccountOpenedInPage extends LoggedInPage {
 
     public OpenAccountAssertion openAccountAssertion;
 
 
-    public AccountOpenedPage(WebDriver driver){
+    public AccountOpenedInPage(WebDriver driver){
         super(driver);
         PageFactory.initElements(driver,this);
         openAccountAssertion = new OpenAccountAssertion(driver);

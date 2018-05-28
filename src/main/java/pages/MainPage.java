@@ -8,8 +8,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public abstract class MainPage {
     protected WebDriver driver;
 
+
+
+
     public MainPage(WebDriver driver) {
         this.driver = driver;
+
     }
 
     public void waitForPageLoad(WebDriver webDriver) {
@@ -18,7 +22,7 @@ public abstract class MainPage {
     }
 
     public <I extends MainPage, O extends MainPage> O run(scenarios.Scenario<I, O> scenario) {
-        return scenario.run((I)this);
+        return scenario.run((I) this);
 
 
     }

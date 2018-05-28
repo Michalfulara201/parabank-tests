@@ -1,9 +1,9 @@
 package scenarios;
 
-import pages.AccountPage;
+import pages.AccountInPage;
 import pages.IndexPage;
 
-public class LoginScenario implements Scenario<IndexPage, AccountPage> {
+public class LoginScenario implements Scenario<IndexPage, AccountInPage> {
 
     private String login;
     private String password;
@@ -16,10 +16,11 @@ public class LoginScenario implements Scenario<IndexPage, AccountPage> {
 
 
     @Override
-    public AccountPage run(IndexPage entry) {
+    public AccountInPage run(IndexPage entry) {
         return entry.openParabankMainPage()
                 .setUserName(login)
                 .setPassword(password)
                 .clickLoginButton();
     }
+
 }
