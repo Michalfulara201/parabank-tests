@@ -19,7 +19,7 @@ public class AccountTests extends MainTest {
 
     public void shouldAddAccountWithSavingsOption() {
         accountPage.menu.clickNewAccountLink()
-                .menu.run(new OpenNewAccountScenario("SAVINGS","13566"))
+                .menu.run(new OpenNewAccountScenario("SAVINGS","18006"))
                 .openAccountAssertion.accountOpenedConfirmation();
 
 
@@ -27,7 +27,7 @@ public class AccountTests extends MainTest {
     @Test (priority = 2)
     public void shouldAddAccountWithCheckingOption(){
         accountPage.menu.clickNewAccountLink()
-                .menu.run(new OpenNewAccountScenario("CHECKING","13566"))
+                .menu.run(new OpenNewAccountScenario("CHECKING","18006"))
                 .openAccountAssertion.accountOpenedConfirmation();
     }
 

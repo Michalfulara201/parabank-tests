@@ -10,7 +10,7 @@ public class FindTransactionTests extends MainTest {
 
     private String accountOfType = "SAVINGS";
     private String amount = "200";
-    private String accountId = "13566";
+    private String accountId = "18006";
     private TransferFinishedPage transferFinishedPage;
 
     @BeforeMethod
@@ -60,7 +60,7 @@ public class FindTransactionTests extends MainTest {
     public void shouldFindTransactionByRange() {
         transferFinishedPage.menu.clickFindTransactionsLink()
                 .selectAccount()
-                .inputFindByRange("05-28-2018", "05-28-2018")
+                .inputFindByRange("04-28-2018","05-28-2018")
                 .clickFindByRangeButton()
 
                 .findTransactionAssertion.transactionResult();

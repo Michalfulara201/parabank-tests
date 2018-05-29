@@ -10,6 +10,7 @@ public class TransactionsPageResults extends LoggedInPage {
 
     public TransactionsPageResults(WebDriver driver) {
         super(driver);
+        waitForPageLoad(driver);
         PageFactory.initElements(driver, this);
         findTransactionAssertion = new TransactionFindAssertion(driver);
 

@@ -81,13 +81,12 @@ public class FindTransactionPage extends LoggedInPage {
     }
     public TransactionsPageResults clickFindByDateButton(){
         findByDateButton.click();
-        waitForPageLoad(driver);
         return new TransactionsPageResults(driver);
+
     }
     public FindTransactionPage inputFindByRange(String field1,String field2){
         range1Button.sendKeys(field1);
         range2Button.sendKeys(field2);
-
         return this;
 
     }

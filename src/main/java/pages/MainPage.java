@@ -14,6 +14,7 @@ public abstract class MainPage {
     public MainPage(WebDriver driver) {
         this.driver = driver;
 
+
     }
 
     public void waitForPageLoad(WebDriver webDriver) {

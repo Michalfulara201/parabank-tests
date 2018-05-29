@@ -16,6 +16,7 @@ public class TransactionFindAssertion extends MainPage{
 
     public TransactionFindAssertion(WebDriver driver) {
         super(driver);
+        waitForPageLoad(driver);
         PageFactory.initElements(driver,this);
 
     }
